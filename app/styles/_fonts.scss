@@ -1,0 +1,86 @@
+// Regular
+@font-face{
+
+  font-family: Proxima Nova;
+  src:url('../fonts/ProximaNova/ProximaNova-Regular.otf');
+  font-weight: 300;
+  font-style: normal;
+
+}
+
+@font-face{
+
+  font-family: Proxima Nova;
+  src:url('../fonts/ProximaNova/ProximaNova-RegularIt.otf');
+  font-weight: 300;
+  font-style: italic;
+
+}
+
+
+// Normal
+@font-face{
+
+  font-family: Proxima Nova;
+  src:url('../fonts/ProximaNova/ProximaNova-Semibold.otf');
+  font-weight: 400;
+  font-style: normal;
+
+}
+
+
+@font-face{
+
+  font-family: Proxima Nova;
+  src:url('../fonts/ProximaNova/ProximaNova-SemiboldIt.otf');
+  font-weight: 400;
+  font-style: italic;
+
+}
+
+
+// Bold
+@font-face{
+
+  font-family: Proxima Nova;
+  src:url('../fonts/ProximaNova/ProximaNova-Bold.otf');
+  font-weight: 500;
+  font-style: normal;
+
+}
+
+
+@font-face{
+
+  font-family: Proxima Nova;
+  src:url('../fonts/ProximaNova/ProximaNova-BoldIt.otf');
+  font-weight: 500;
+  font-style: italic;
+
+}
+
+// Extra Bold
+@font-face{
+
+  font-family: Proxima Nova;
+  src:url('../fonts/ProximaNova/ProximaNova-Extrabld.otf');
+  font-weight: 600;
+  font-style: normal;
+
+}
+
+
+.f300{
+  font-weight:300;
+}
+
+.f400{
+  font-weight:400;
+}
+.f500{
+  font-weight:500;
+}
+.f600{
+  font-weight:600;
+}
+

@@ -1,0 +1,50 @@
+<!doctype html>
+<html class="no-js">
+  <head>
+    <meta charset="utf-8">
+    <title>Jaiye | Interface admin</title>
+    <base href="/">
+    <meta name="description" content="">
+    <meta name="viewport" content="width=device-width">
+
+    <!-- Disable follow index by Google -->
+    <meta name="robots" content="noindex">
+    <meta name="googlebot" content="noindex">
+    <!-- Place favicon.ico and apple-touch-icon.png in the root directory -->
+
+    <!-- build:css(.tmp) styles/main.css -->
+    <link rel="stylesheet" href="styles/main.css">
+    <!-- endbuild -->
+  </head>
+  <body ng-app="jaiyeApp">
+    <!--[if lt IE 7]>
+    <p class="browsehappy">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> to improve your experience.</p>
+    <![endif]-->
+
+
+    
+    <!-- Include page according to the state -->
+    <div id="app" ui-view="" class="animated fadeIn"></div>
+
+
+    <!-- Navigation aside -->
+    <div id="navigation" ng-cloak data-ng-include="'views/partials/navigation.html'"></div>
+
+
+    <!-- build:js(.) scripts/vendor.js -->
+    <!-- bower:js -->
+    <script src="bower_components/jquery/dist/jquery.js"></script>
+    <script src="bower_components/angular/angular.js"></script>
+    <script src="bower_components/bootstrap-sass-official/assets/javascripts/bootstrap.js"></script>
+    <script src="bower_components/angular-ui-router/release/angular-ui-router.js"></script>
+    <!-- endbower -->
+    <!-- endbuild -->
+
+    <!-- build:js({.tmp,app}) scripts/scripts.js -->
+    <script src="scripts/app.js"></script>
+    <script src="scripts/interceptors/AuthInterceptor.js"></script>
+    <script src="scripts/services/StorageService.js"></script>
+    <script src="scripts/controllers/home.js"></script>
+    <!-- endbuild -->
+</body>
+</html>

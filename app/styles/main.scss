@@ -1,0 +1,29 @@
+$icon-font-path: "../bower_components/bootstrap-sass-official/assets/fonts/bootstrap/";
+@import "bootstrap-sass-official/assets/stylesheets/_bootstrap.scss";
+@import 'colors';
+@import 'fonts';
+@import 'navigation';
+
+*{
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;
+}
+
+
+body, html{
+  height:100%;
+  width:100%;
+}
+
+html{
+  font-size: 62.5%;
+}
+
+body {
+  padding: 0;
+  margin:0;
+  font-family: 'Proxima Nova';
+}
+
+
