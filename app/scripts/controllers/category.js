@@ -10,7 +10,6 @@
 angular.module('jaiyeApp')
   .controller('CategoryCtrl', function ($scope, CategoryService, Logger) {
 
-      console.log('CategoryCtrl');
       $scope.category = {};
       $scope.categories = [];
 

@@ -13,7 +13,9 @@ angular
     'ui.router',
     'angularMoment'
   ])
-  .run(function($rootScope, $state, AuthService) {
+  .run(function($rootScope, $state, AuthService, amMoment) {
+
+      amMoment.changeLocale('fr');
 
       $rootScope.$on("$stateChangeStart", function (event, toState) {
         $rootScope.title = toState.title;

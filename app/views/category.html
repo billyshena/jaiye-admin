@@ -29,20 +29,25 @@
                 <thead>
                 <tr>
                     <th>Nom</th>
+                    <th>Date d'ajout</th>
                     <th>Actions</th>
                 </tr>
                 </thead>
 
                 <tbody>
-                <tr data-ng-repeat="c in categories | orderBy: 'name' ">
+                <tr data-ng-repeat="c in categories | orderBy: '-createdAt' ">
                     <td data-ng-if="!c.isEditing">{{ c.name }}</td>
+                    <td style="opacity:0.5;" data-ng-if="!c.isEditing">{{ c.createdAt | amDateFormat: 'DD/MM/YYYY' }} - <span am-time-ago="c.createdAt"></span></td>
                     <td data-ng-if="!c.isEditing">
                         <a href="javascript:;" class="btn btn-update" data-ng-click="c.isEditing = true">Modifier</a>
+                        <a href="javascript:;" class="btn btn-delete" data-ng-click="delete(c)">Supprimer</a>
                     </td>
+
 
                     <td data-ng-if="c.isEditing">
                         <input type="text" data-ng-model="c.name" class="form-control"/>
                     </td>
+                    <td style="opacity:0.5;" data-ng-if="c.isEditing">{{ c.createdAt | amDateFormat: 'DD/MM/YYYY' }} - <span am-time-ago="c.createdAt"></span></td>
 
                     <td data-ng-if="c.isEditing">
                         <a href="javascript:;" class="btn btn-update btn-save pull-left" data-ng-click="update(c); c.isEditing = false;" style="margin:4px 0px 0px -23px;">Enregistrer</a>
