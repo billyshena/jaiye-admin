@@ -12,6 +12,13 @@ angular
   .module('jaiyeApp', [
     'ui.router'
   ])
+  .run(function($rootScope) {
+
+      $rootScope.$on("$stateChangeStart", function (event, toState) {
+        console.log('stateChange', toState);
+        $rootScope.title = toState.title;
+      });
+  })
   .config(function($stateProvider, $urlRouterProvider, $httpProvider, $locationProvider) {
 
     $locationProvider.html5Mode(true);
@@ -27,6 +34,28 @@ angular
         url: '/',
         controller: 'HomeCtrl',
         templateUrl: '/views/home.html'
-      });
+      })
+        .state('category', {
+          url: '/category',
+          controller: 'CategoryCtrl',
+          templateUrl: '/views/category.html',
+          title: 'Liste des catégories'
+        })
+        .state('song', {
+          url: '/song',
+          controller: 'SongCtrl',
+          templateUrl: '/views/song.html'
+        })
+        .state('user', {
+          url: '/user',
+          controller: 'UserCtrl',
+          templateUrl: '/views/user.html'
+        })
+        .state('tag', {
+          url: '/tag',
+          controller: 'TagCtrl',
+          templateUrl: '/views/tag.html'
+        });
+
 
   });

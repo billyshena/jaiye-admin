@@ -1,0 +1,69 @@
+<section id="category" class="ng-scope">
+
+    <div class="panel">
+        <div class="panel-heading f400 circularStd ng-binding">
+            <div class="pull-right" data-ng-show="!isAdding">
+                <a href="javascript:;" class="btn btn-add-category" data-ng-click="isAdding = true">
+                    + Ajouter
+                </a>
+            </div>
+
+            <div class="pull-right ng-hide" data-ng-show="isAdding">
+                <a href="javascript:;" class="btn btn-cancel pull-right" data-ng-click="isAdding = false">
+                    Annuler
+                </a>
+                <a href="javascript:;" class="btn btn-add-category pull-right" data-ng-click="add()">
+                    Enregistrer
+                </a>
+
+            </div>
+            5 catégories
+        </div>
+        <div class="panel-body">
+            <table class="table table-striped">
+                <thead>
+                <tr>
+                    <th>Ordre</th>
+                    <th>Nom</th>
+                    <th>Actions</th>
+                </tr>
+                </thead>
+
+                <tbody>
+                <tr data-ng-repeat="c in categories | orderBy: 'name' ">
+                    <td data-ng-if="!c.isEditing">{{ c.name }}</td>
+                    <td data-ng-if="!c.isEditing">
+                        <a href="javascript:;" class="btn btn-update" data-ng-click="c.isEditing = true">Modifier</a>
+                    </td>
+
+                    <td data-ng-if="c.isEditing">
+                        <input type="text" data-ng-model="c.name" class="form-control"/>
+                    </td>
+
+                    <td data-ng-if="c.isEditing">
+                        <a href="javascript:;" class="btn btn-update btn-save pull-left" data-ng-click="update(c); c.isEditing = false;" style="margin:4px 0px 0px -23px;">Enregistrer</a>
+                        <a href="javascript:;" class="btn btn-update pull-left" data-ng-click="c.isEditing = false" style="margin:4px 0px 0px 4px;">Annuler</a>
+                    </td>
+
+
+                </tr>
+
+
+                <tr data-ng-if="isAdding">
+                    <td>
+                        <input type="text" class="form-control" data-ng-model="newCategory.name"/>
+                    </td>
+                </tr>
+
+
+                </tbody>
+
+
+            </table>
+        </div>
+    </div>
+
+
+
+
+</section>
