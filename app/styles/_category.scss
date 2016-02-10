@@ -1,0 +1,56 @@
+#category{
+  max-width:97%;
+  margin: 20px auto;
+
+  .btn-add-category{
+    background:$button-black;
+    color:$button-txt-color;
+    padding:6px 20px;
+    border-radius:20px;
+  }
+
+  .btn-cancel{
+    border:1px solid $button-black;
+    padding:8px 20px;
+    border-radius:20px;
+    margin-left:8px;
+  }
+
+
+  .form-control{
+    width:90%;
+  }
+
+
+  .btn-update{
+    font-size: 1.4rem;
+    border: 1px solid #4296c5;
+    padding: 5px 15px;
+    color: #4296c5;
+    line-height: 15px;
+    background-color: #fff;
+    border-radius: 30px;
+    font-weight: 400;
+    cursor: pointer;
+    margin-left:-15px;
+  }
+  .btn-save{
+    background-color:#4296c5;
+    color:$button-txt-color;
+  }
+
+  .panel-heading{
+    margin:10px 5px;
+    font-size:2rem;
+    padding-bottom:0px;
+  }
+
+
+  table{
+    th{
+      font-weight:400;
+    }
+  }
+
+
+}

@@ -15,7 +15,6 @@ angular
   .run(function($rootScope) {
 
       $rootScope.$on("$stateChangeStart", function (event, toState) {
-        console.log('stateChange', toState);
         $rootScope.title = toState.title;
       });
   })
