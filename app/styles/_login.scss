@@ -1,0 +1,61 @@
+#admin-wrapper{
+
+
+  .btn-login{
+    width:100%;
+    background:$login-bg;
+    color:white;
+    padding:9px 0px;
+    border-radius:4px;
+  }
+  .admin-logo{
+    img{
+      padding-top:40px;
+      margin:0px auto;
+      display:block;
+    }
+  }
+  background-color:#000000;
+  height:100vh;
+  width:100%;
+
+
+  .box-container{
+    z-index: 200;
+    width: 360px;
+    height: 360px;
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    margin-left: -180px;
+    margin-top: -180px;
+
+
+    .box{
+      position: absolute;
+      z-index: 3;
+      top: 0;
+      left: 0;
+      bottom: 0;
+      right: 0;
+      font-size: 1.4rem;
+      padding: 45px 35px;
+      background: #fff;
+      text-align: center;
+      border-radius: 5px;
+      h1{
+        font-size: 2.6rem;
+        font-weight: 300;
+      }
+      form.sign-in{
+        margin-top: 35px;
+
+        div{
+          margin-bottom: 9pt;
+          position:relative;
+        }
+      }
+    }
+  }
+
+}

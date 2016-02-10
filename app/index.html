@@ -23,19 +23,17 @@
 
 
     <!-- Header partial -->
-    <header id="header"
-            ng-cloak
-            data-ng-controller="HeaderCtrl"
-            data-ng-include="'views/partials/header.html'"></header>
+    <div ui-view="theHeader"></div>
     
     <!-- Include page according to the state -->
     <div id="app" ui-view="" class="animated fadeIn"></div>
 
 
     <!-- Navigation aside -->
-    <div id="navigation" ng-cloak data-ng-include="'views/partials/navigation.html'"></div>
+    <div ui-view="theNav"></div>
 
 
+    <script src="scripts/config.js"></script>
     <!-- build:js(.) scripts/vendor.js -->
     <!-- bower:js -->
     <script src="bower_components/jquery/dist/jquery.js"></script>
@@ -55,6 +53,9 @@
     <script src="scripts/controllers/tag.js"></script>
     <script src="scripts/controllers/user.js"></script>
     <script src="scripts/controllers/header.js"></script>
+    <script src="scripts/services/CategoryService.js"></script>
+    <script src="scripts/services/AuthService.js"></script>
+    <script src="scripts/controllers/login.js"></script>
     <!-- endbuild -->
 </body>
 </html>

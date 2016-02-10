@@ -12,10 +12,19 @@ angular
   .module('jaiyeApp', [
     'ui.router'
   ])
-  .run(function($rootScope) {
+  .run(function($rootScope, $state, AuthService) {
 
       $rootScope.$on("$stateChangeStart", function (event, toState) {
         $rootScope.title = toState.title;
+
+        if(toState.authenticate && !AuthService.isAuthenticated()) {
+
+          event.preventDefault();
+          $state.go('login');
+
+        }
+
+
       });
   })
   .config(function($stateProvider, $urlRouterProvider, $httpProvider, $locationProvider) {
@@ -26,7 +35,7 @@ angular
     delete $httpProvider.defaults.headers.common['X-Requested-With'];
     $httpProvider.interceptors.push('AuthInterceptor');
 
-    console.log('$stateProvider', $stateProvider);
+    $urlRouterProvider.otherwise("/login");
 
     $stateProvider
       .state('home', {
@@ -42,8 +51,21 @@ angular
         })
         .state('song', {
           url: '/song',
-          controller: 'SongCtrl',
-          templateUrl: '/views/song.html'
+          views: {
+            '': {
+              controller: 'SongCtrl',
+              templateUrl: '/views/song.html',
+            },
+            'theHeader@': {
+              templateUrl: '/views/partials/header.html',
+              controller: 'HeaderCtrl'
+            },
+            'theNav@': {
+              templateUrl: '/views/partials/navigation.html'
+            }
+          },
+          authenticate: true,
+          title: 'Liste des songs'
         })
         .state('user', {
           url: '/user',
@@ -54,6 +76,11 @@ angular
           url: '/tag',
           controller: 'TagCtrl',
           templateUrl: '/views/tag.html'
+        })
+        .state('login', {
+          url: '/login',
+          controller: 'LoginCtrl',
+          templateUrl: '/views/login.html'
         });
 
 

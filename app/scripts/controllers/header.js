@@ -8,10 +8,12 @@
  * Controller of the jaiyeApp
  */
 angular.module('jaiyeApp')
-  .controller('HeaderCtrl', function ($scope) {
-    $scope.awesomeThings = [
-      'HTML5 Boilerplate',
-      'AngularJS',
-      'Karma'
-    ];
+  .controller('HeaderCtrl', function ($scope, $state, Storage) {
+
+      $scope.logout = function() {
+
+        Storage.unset('token');
+        $state.go('login');
+
+      }
   });
