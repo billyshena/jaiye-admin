@@ -7,6 +7,7 @@ $icon-font-path: "../bower_components/bootstrap-sass-official/assets/fonts/boots
 @import 'navigation';
 @import 'category';
 @import 'login';
+@import 'toastr';
 
 *{
   -webkit-box-sizing: border-box;
@@ -47,4 +48,26 @@ a{
   cursor:pointer;
   font-family: 'Proxima Nova';
   color:$header-txt-color;
+}
+
+
+.form-control{
+  box-shadow:none;
+  &:focus{
+    box-shadow:none;
+    border-color:$input-border-color;
+  }
+}
+
+
+.btn-default{
+  &:hover{
+    background: $btn-default;
+    color:white;
+  }
+  background:$btn-default;
+  border:none;
+  color:white;
+  padding:6.5px 15px;
+  font-weight:300;
 }

@@ -27,6 +27,24 @@ angular
           });
           return promise;
 
+        },
+
+        update: function(params) {
+
+          var promise = $http.put(config.appUrl + '/' + endpoint + '/' + params.id, params).then(function(response) {
+            return response.data;
+          });
+          return promise;
+
+        },
+
+        delete: function(id) {
+
+          var promise = $http.delete(config.appUrl + '/' + endpoint + '/' + id).then(function(response) {
+            return response.data;
+          });
+          return promise;
+
         }
 
       };

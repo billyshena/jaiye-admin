@@ -10,7 +10,8 @@
  */
 angular
   .module('jaiyeApp', [
-    'ui.router'
+    'ui.router',
+    'angularMoment'
   ])
   .run(function($rootScope, $state, AuthService) {
 
@@ -40,13 +41,26 @@ angular
     $stateProvider
       .state('home', {
         url: '/',
-        controller: 'HomeCtrl',
-        templateUrl: '/views/home.html'
+        controller: function($state) {
+          $state.go('song');
+        }
       })
         .state('category', {
           url: '/category',
-          controller: 'CategoryCtrl',
-          templateUrl: '/views/category.html',
+          views: {
+            '': {
+              controller: 'CategoryCtrl',
+              templateUrl: '/views/category.html',
+            },
+            'theHeader@': {
+              templateUrl: '/views/partials/header.html',
+              controller: 'HeaderCtrl'
+            },
+            'theNav@': {
+              templateUrl: '/views/partials/navigation.html'
+            }
+          },
+          authenticate: true,
           title: 'Liste des catégories'
         })
         .state('song', {
@@ -54,7 +68,7 @@ angular
           views: {
             '': {
               controller: 'SongCtrl',
-              templateUrl: '/views/song.html',
+              templateUrl: '/views/song.html'
             },
             'theHeader@': {
               templateUrl: '/views/partials/header.html',
