@@ -11,7 +11,8 @@
 angular
   .module('jaiyeApp', [
     'ui.router',
-    'angularMoment'
+    'angularMoment',
+    'ui.bootstrap'
   ])
   .run(function($rootScope, $state, AuthService, amMoment) {
 

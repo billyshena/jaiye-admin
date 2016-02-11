@@ -8,7 +8,7 @@
  * Controller of the jaiyeApp
  */
 angular.module('jaiyeApp')
-  .controller('SongCtrl', function ($scope, SongService, Logger) {
+  .controller('SongCtrl', function ($scope, SongService, Logger, $modal) {
 
       $scope.song = {};
       $scope.songs = [];
@@ -23,6 +23,15 @@ angular.module('jaiyeApp')
             console.log('err',err);
           });
       }
+
+
+      $scope.add = function() {
+        var modalInstance = $modal.open({
+          templateUrl: '/views/addsongmodal.html',
+          controller: 'AddSongModalCtrl'
+        });
+
+      };
 
       loadSongs();
 
