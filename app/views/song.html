@@ -1,1 +1,64 @@
-<p>This is the song view.</p>
+<section id="song">
+
+
+    <div class="panel-heading f300">
+        <div class="pull-right">
+            <button type="submit" class="btn btn-default">+ Ajouter</button>
+        </div>
+
+        <div class="pull-right ng-hide" data-ng-show="isAdding">
+            <a href="javascript:;" class="btn btn-cancel pull-right" data-ng-click="isAdding = false">
+                Annuler
+            </a>
+            <a href="javascript:;" class="btn btn-add-category pull-right" data-ng-click="add()">
+                Enregistrer
+            </a>
+
+        </div>
+        {{ songs.length }} musiques
+    </div>
+    <div class="panel-body">
+        <table class="table table-striped">
+            <thead>
+            <tr>
+                <th>Titre</th>
+                <th>Artiste</th>
+                <th>Url</th>
+                <th>Description</th>
+                <th>Catégorie</th>
+                <th>Date d'ajout</th>
+                <th>État</th>
+            </tr>
+            </thead>
+
+            <tbody>
+            <tr data-ng-repeat="s in songs | orderBy: '-createdAt' ">
+                <td>{{ s.title }}</td>
+                <td>{{ s.owner.firstName }} {{ s.owner.lastName }}</td>
+                <td>{{ s.url }}</td>
+                <td>{{ s.description }}</td>
+                <td>{{ s.category.name }}</td>
+                <td am-time-ago="s.createdAt"></td>
+                <td>{{ s.validated }}</td>
+
+
+            </tr>
+
+
+            <tr data-ng-if="isAdding">
+                <td>
+                    <input type="text" class="form-control" data-ng-model="newCategory.name"/>
+                </td>
+            </tr>
+
+
+            </tbody>
+
+
+        </table>
+    </div>
+
+
+
+
+</section>
