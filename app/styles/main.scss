@@ -9,6 +9,7 @@ $icon-font-path: "../bower_components/bootstrap-sass-official/assets/fonts/boots
 @import 'login';
 @import 'song';
 @import 'toastr';
+@import 'updatesongmodal';
 @import 'modals';
 
 *{
@@ -77,4 +78,46 @@ a{
   color:white;
   padding:6.5px 15px;
   font-weight:300;
+}
+
+.btn-like-inactive:before {
+  margin-right: 8px;
+  color: #ff012b;
+  display: inline-block;
+}
+
+
+.btn-update{
+  font-size: 1.4rem;
+  border: 1px solid #4296c5;
+  padding: 5px 15px;
+  color: #4296c5;
+  line-height: 15px;
+  background-color: #fff;
+  border-radius: 30px;
+  font-weight: 300;
+  cursor: pointer;
+  margin-left:-15px;
+}
+
+.btn-delete{
+  font-size: 1.4rem;
+  border: 1px solid #EC5050;
+  padding: 5px 15px;
+  color: #EC5050;
+  line-height: 15px;
+  background-color: #fff;
+  border-radius: 30px;
+  font-weight: 300;
+  cursor: pointer;
+}
+
+
+
+label{
+  font-weight:300;
+}
+
+.modal-body{
+  padding:32px 50px;
 }

@@ -33,6 +33,30 @@ angular.module('jaiyeApp')
 
       };
 
+
+      $scope.update = function(song) {
+
+        var modalInstance = $modal.open({
+          templateUrl: '/views/updatesongmodal.html',
+          controller: 'UpdateSongModalCtrl',
+          resolve: {
+            song: function() {
+              return song;
+            }
+          }
+        });
+
+        modalInstance.result.then(function(result) {
+          _.each($scope.songs, function(value, index) {
+            if(value.id === result.id) {
+              $scope.songs.splice(index, 1);
+            }
+          });
+          $scope.songs.push(result);
+        })
+
+      };
+
       loadSongs();
 
   });

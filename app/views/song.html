@@ -24,10 +24,9 @@
                 <th>Titre</th>
                 <th>Artiste</th>
                 <th>Url</th>
-                <th>Description</th>
                 <th>Catégorie</th>
-                <th>Date d'ajout</th>
                 <th>État</th>
+                <th>Actions</th>
             </tr>
             </thead>
 
@@ -36,10 +35,19 @@
                 <td>{{ s.title }}</td>
                 <td>{{ s.owner.firstName }} {{ s.owner.lastName }}</td>
                 <td>{{ s.url }}</td>
-                <td>{{ s.description }}</td>
-                <td>{{ s.category.name }}</td>
-                <td am-time-ago="s.createdAt"></td>
-                <td>{{ s.validated }}</td>
+                <td>{{ s.category.name || 'Aucune' }}</td>
+                <td>
+                    <span data-ng-if="s.validated">Activé</span>
+                    <span data-ng-if="!s.validated">Désactivé</span>
+                </td>
+                <td>
+                    <span>
+                       <a href="javascript:;" class="btn btn-update" data-ng-click="update(s)">Modifier</a>
+                    </span>
+                    <span>
+                        <a href="javascript:;" class="btn btn-delete" data-ng-click="delete(c)">Supprimer</a>
+                    </span>
+                </td>
 
 
             </tr>
