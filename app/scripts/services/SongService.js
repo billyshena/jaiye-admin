@@ -22,7 +22,7 @@ angular
 
         find: function(where) {
 
-          var promise = $http.get(config.appUrl + '/' + endpoint, where).then(function(response) {
+          var promise = $http.get(config.appUrl + '/' + endpoint, { params: where }).then(function(response) {
             return response.data;
           });
           return promise;

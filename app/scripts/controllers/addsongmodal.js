@@ -12,9 +12,19 @@ angular.module('jaiyeApp')
 
       $scope.song = {};
       $scope.categories = [];
+      $scope.selection = {};
 
       $scope.add = function() {
-        SongService.create($scope.song).then(function(data) {
+
+        var param = $scope.song;
+        delete param.category;
+        param.category = $scope.selection.id;
+
+        console.log('param', param);
+
+        SongService.create(param).then(function(data) {
+
+          data.category = $scope.selection;
           Logger.logSuccess('Le son a bien été crée !');
           $modalInstance.close(data);
         }, function(err) {

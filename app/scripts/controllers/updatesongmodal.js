@@ -16,7 +16,6 @@ angular.module('jaiyeApp')
       $scope.categories = [];
       $scope.selectedBox = song.validated;
 
-      console.log('selectBox', $scope.selectedBox);
 
 
       function loadCategories() {

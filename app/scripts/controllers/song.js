@@ -15,7 +15,9 @@ angular.module('jaiyeApp')
 
       function loadSongs() {
 
-          SongService.find().then(function(data) {
+        console.log('loadSongs');
+          SongService.find({ populate: ['category', 'owner'] }).then(function(data) {
+
             $scope.songs = data;
           }, function(err) {
             Logger.logError('Impossible de charger les sons');
