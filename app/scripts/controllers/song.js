@@ -8,7 +8,7 @@
  * Controller of the jaiyeApp
  */
 angular.module('jaiyeApp')
-  .controller('SongCtrl', function ($scope, SongService, Logger, $modal) {
+  .controller('SongCtrl', function ($scope, SongService, Logger, $modal, $window) {
 
       $scope.song = {};
       $scope.songs = [];
@@ -17,7 +17,6 @@ angular.module('jaiyeApp')
 
           SongService.find().then(function(data) {
             $scope.songs = data;
-            console.log('data', data);
           }, function(err) {
             Logger.logError('Impossible de charger les sons');
             console.log('err',err);
@@ -29,6 +28,10 @@ angular.module('jaiyeApp')
         var modalInstance = $modal.open({
           templateUrl: '/views/addsongmodal.html',
           controller: 'AddSongModalCtrl'
+        });
+
+        modalInstance.result.then(function(data) {
+          $scope.songs.push(data);
         });
 
       };
@@ -54,6 +57,20 @@ angular.module('jaiyeApp')
           });
           $scope.songs.push(result);
         })
+
+      };
+
+
+      $scope.delete = function(song) {
+
+        var confirm = $window.confirm("Êtes-vous sûr de vouloir supprimer ce son?");
+        if(!confirm) {
+          return;
+        }
+        SongService.delete(song.id).then(function(data) {
+          $scope.songs.splice($scope.songs.indexOf(song), 1);
+          Logger.logSuccess('Le son a bien été supprimé');
+        });
 
       };
 
