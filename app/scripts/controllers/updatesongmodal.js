@@ -14,6 +14,9 @@ angular.module('jaiyeApp')
       $scope.song = angular.copy(song);
       $scope.selection = {};
       $scope.categories = [];
+      $scope.selectedBox = song.validated;
+
+      console.log('selectBox', $scope.selectedBox);
 
 
       function loadCategories() {
@@ -39,7 +42,6 @@ angular.module('jaiyeApp')
         delete param.owner;
         param.validated = $scope.selectedBox || false;
 
-        console.log('before update', param);
         // Call the API
         SongService.update(param).then(function(result) {
           Logger.logSuccess('Modifications enregistrées !');
