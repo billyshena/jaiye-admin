@@ -1,0 +1,78 @@
+#user{
+
+  max-width:97%;
+  margin: 20px auto;
+
+
+  .btn-add-category{
+    background:$button-black;
+    color:$button-txt-color;
+    padding:6px 20px;
+    border-radius:20px;
+  }
+
+  .btn-cancel{
+    border:1px solid $button-black;
+    padding:8px 20px;
+    border-radius:20px;
+    margin-left:8px;
+  }
+
+
+  .form-control{
+    width:90%;
+  }
+
+
+  .btn-update{
+    font-size: 1.4rem;
+    border: 1px solid #4296c5;
+    padding: 5px 15px;
+    color: #4296c5;
+    line-height: 15px;
+    background-color: #fff;
+    border-radius: 30px;
+    font-weight: 300;
+    cursor: pointer;
+    margin-left:-15px;
+  }
+
+  .btn-delete{
+    font-size: 1.4rem;
+    border: 1px solid #EC5050;
+    padding: 5px 15px;
+    color: #EC5050;
+    line-height: 15px;
+    background-color: #fff;
+    border-radius: 30px;
+    font-weight: 300;
+    cursor: pointer;
+  }
+  .btn-save{
+    background-color:#4296c5;
+    color:$button-txt-color;
+  }
+
+  .panel-heading{
+    margin:10px 5px;
+    font-size:2rem;
+    padding-bottom:0px;
+  }
+
+
+  table{
+    font-weight:300;
+    th{
+      opacity:0.7;
+      font-weight:400;
+    }
+    td{
+      padding:15px 6px;
+    }
+
+    .btn-update,.btn-delete{
+      display:inline;
+      margin-left:0;
+    }
+  }
+}

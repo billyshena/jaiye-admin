@@ -1,1 +1,56 @@
-<p>This is the user view.</p>
+<section id="user">
+
+    <div class="panel-heading f300">
+        <div class="pull-right">
+            <button class="btn btn-default" data-ng-click="add()">+ Ajouter</button>
+        </div>
+
+        <div class="pull-right ng-hide" data-ng-show="isAdding">
+            <a href="javascript:;" class="btn btn-cancel pull-right" data-ng-click="isAdding = false">
+                Annuler
+            </a>
+            <a href="javascript:;" class="btn btn-add-category pull-right" data-ng-click="add()">
+                Enregistrer
+            </a>
+
+        </div>
+        {{ users.length }} artistes
+    </div>
+    <div class="panel-body">
+        <table class="table table-striped">
+            <thead>
+            <tr>
+                <th>Nom</th>
+                <th>Email</th>
+                <th>Inscription</th>
+                <th>Actions</th>
+            </tr>
+            </thead>
+
+            <tbody>
+            <tr data-ng-repeat="u in users | orderBy: '-createdAt' ">
+                <td>{{ u.firstName }} {{ u.lastName }}</td>
+                <td>{{ u.email }}</td>
+                <td am-time-ago="u.createdAt"></td>
+                <td>
+                    <span>
+                       <a href="javascript:;" class="btn btn-update" data-ng-click="update(u)">Modifier</a>
+                    </span>
+                    <span>
+                        <a href="javascript:;" class="btn btn-delete" data-ng-click="delete(u)">Supprimer</a>
+                    </span>
+                </td>
+
+
+            </tr>
+
+
+
+
+            </tbody>
+
+
+        </table>
+    </div>
+
+</section>

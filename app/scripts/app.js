@@ -82,12 +82,25 @@ angular
             }
           },
           authenticate: true,
-          title: 'Liste des songs'
+          title: 'Tous les sons'
         })
         .state('user', {
           url: '/user',
-          controller: 'UserCtrl',
-          templateUrl: '/views/user.html'
+          views: {
+            '': {
+              controller: 'UserCtrl',
+              templateUrl: '/views/user.html'
+            },
+            'theHeader@': {
+              templateUrl: '/views/partials/header.html',
+              controller: 'HeaderCtrl'
+            },
+            'theNav@': {
+              templateUrl: '/views/partials/navigation.html'
+            }
+          },
+          title: 'Tous les artistes'
+
         })
         .state('tag', {
           url: '/tag',

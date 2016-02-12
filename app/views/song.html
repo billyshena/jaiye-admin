@@ -37,8 +37,8 @@
                 <td>{{ s.url }}</td>
                 <td>{{ s.category.name || 'Aucune' }}</td>
                 <td>
-                    <span data-ng-if="s.validated">Activé</span>
-                    <span data-ng-if="!s.validated">Désactivé</span>
+                    <span data-ng-if="s.validated" style="color:#2D9E2D;">Activé</span>
+                    <span data-ng-if="!s.validated" style="color:grey;">Désactivé</span>
                 </td>
                 <td>
                     <span>

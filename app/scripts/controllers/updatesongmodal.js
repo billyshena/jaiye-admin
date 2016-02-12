@@ -37,8 +37,9 @@ angular.module('jaiyeApp')
         delete param.category;
         param.category = $scope.selection.id;
         delete param.owner;
-        param.validated = $scope.selectedBox;
+        param.validated = $scope.selectedBox || false;
 
+        console.log('before update', param);
         // Call the API
         SongService.update(param).then(function(result) {
           Logger.logSuccess('Modifications enregistrées !');

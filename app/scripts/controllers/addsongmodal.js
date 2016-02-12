@@ -37,6 +37,10 @@ angular.module('jaiyeApp')
 
       }
 
+      $scope.cancel = function() {
+        $modalInstance.dismiss();
+      };
+
       loadCategories();
 
     });

@@ -51,7 +51,7 @@ angular.module('jaiyeApp')
 
         modalInstance.result.then(function(result) {
           _.each($scope.songs, function(value, index) {
-            if(value.id === result.id) {
+            if(value && value.id === result.id) {
               $scope.songs.splice(index, 1);
             }
           });
