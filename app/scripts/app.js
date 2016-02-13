@@ -104,8 +104,20 @@ angular
         })
         .state('tag', {
           url: '/tag',
-          controller: 'TagCtrl',
-          templateUrl: '/views/tag.html'
+          views: {
+            '': {
+              controller: 'TagCtrl',
+              templateUrl: '/views/tag.html'
+            },
+            'theHeader@': {
+              templateUrl: '/views/partials/header.html',
+              controller: 'HeaderCtrl'
+            },
+            'theNav@': {
+              templateUrl: '/views/partials/navigation.html'
+            }
+          },
+          title: 'Liste des tags'
         })
         .state('login', {
           url: '/login',

@@ -1,1 +1,68 @@
-<p>This is the tag view.</p>
+<section id="tag">
+
+
+    <div class="panel-heading f300 ng-binding">
+        <div class="pull-right">
+            <form action="javascript:;" class="add-category" data-ng-submit="$event.preventDefault();add()">
+                    <span>
+                        <input type="text" class="form-control" data-ng-model="tag.name"/>
+                    </span>
+                    <span>
+                        <button type="submit" class="btn btn-default">Créer</button>
+                    </span>
+            </form>
+        </div>
+
+        <div class="pull-right ng-hide" data-ng-show="isAdding">
+            <a href="javascript:;" class="btn btn-cancel pull-right" data-ng-click="isAdding = false">
+                Annuler
+            </a>
+            <a href="javascript:;" class="btn btn-add-category pull-right" data-ng-click="add()">
+                Enregistrer
+            </a>
+
+        </div>
+        {{ tags.length }} tags
+    </div>
+    <div class="panel-body">
+        <table class="table table-striped">
+            <thead>
+            <tr>
+                <th>Nom</th>
+                <th>Date d'ajout</th>
+                <th>Actions</th>
+            </tr>
+            </thead>
+
+            <tbody>
+            <tr data-ng-repeat="t in tags | orderBy: '-createdAt' ">
+                <td data-ng-if="!t.isEditing">{{ t.name }}</td>
+                <td style="opacity:0.5;" data-ng-if="!t.isEditing">{{ t.createdAt | amDateFormat: 'DD/MM/YYYY' }} - <span am-time-ago="t.createdAt"></span></td>
+                <td data-ng-if="!t.isEditing">
+                    <a href="javascript:;" class="btn btn-update" data-ng-click="t.isEditing = true">Modifier</a>
+                    <a href="javascript:;" class="btn btn-delete" data-ng-click="delete(t)">Supprimer</a>
+                </td>
+
+
+                <td data-ng-if="t.isEditing">
+                    <input type="text" data-ng-model="t.name" class="form-control"/>
+                </td>
+                <td style="opacity:0.5;" data-ng-if="t.isEditing">{{ t.createdAt | amDateFormat: 'DD/MM/YYYY' }} - <span am-time-ago="t.createdAt"></span></td>
+
+                <td data-ng-if="t.isEditing">
+                    <a href="javascript:;" class="btn btn-update btn-save pull-left" data-ng-click="update(t); t.isEditing = false;" style="margin:4px 0px 0px -23px;">Enregistrer</a>
+                    <a href="javascript:;" class="btn btn-update pull-left" data-ng-click="t.isEditing = false" style="margin:4px 0px 0px 4px;">Annuler</a>
+                </td>
+
+            </tr>
+
+            </tbody>
+
+
+        </table>
+    </div>
+
+
+
+
+</section>

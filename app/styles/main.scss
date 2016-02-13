@@ -11,6 +11,7 @@ $icon-font-path: "../bower_components/bootstrap-sass-official/assets/fonts/boots
 @import 'toastr';
 @import 'updatesongmodal';
 @import 'user';
+@import 'tag';
 @import 'modals';
 
 *{
@@ -89,6 +90,9 @@ a{
 
 
 .btn-update{
+  &:hover{
+    color:#4296c5;
+  }
   font-size: 1.4rem;
   border: 1px solid #4296c5;
   padding: 5px 15px;
@@ -102,6 +106,9 @@ a{
 }
 
 .btn-delete{
+  &:hover{
+    color:#EC5050;
+  }
   font-size: 1.4rem;
   border: 1px solid #EC5050;
   padding: 5px 15px;
