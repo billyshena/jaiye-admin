@@ -21,6 +21,7 @@
         <table class="table table-striped">
             <thead>
             <tr>
+                <th>ID</th>
                 <th>Titre</th>
                 <th>Artiste</th>
                 <th>Url</th>
@@ -32,6 +33,7 @@
 
             <tbody>
             <tr data-ng-repeat="s in songs | orderBy: '-createdAt' ">
+                <td>{{ s.id }}</td>
                 <td>{{ s.title }}</td>
                 <td>{{ s.owner.firstName }} {{ s.owner.lastName }}</td>
                 <td>{{ s.url }}</td>

@@ -123,6 +123,23 @@ angular
           url: '/login',
           controller: 'LoginCtrl',
           templateUrl: '/views/login.html'
+        })
+        .state('award', {
+          url: '/award',
+          views: {
+            '': {
+              controller: 'AwardCtrl',
+              templateUrl: '/views/award.html'
+            },
+            'theHeader@': {
+              templateUrl: '/views/partials/header.html',
+              controller: 'HeaderCtrl'
+            },
+            'theNav@': {
+              templateUrl: '/views/partials/navigation.html'
+            }
+          },
+          title: 'Liste des awards'
         });
 
 
