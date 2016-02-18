@@ -16,6 +16,7 @@
                 <th>Son</th>
                 <th>Artiste</th>
                 <th>Date d'ajout</th>
+                <th>Actions</th>
             </tr>
             </thead>
 
@@ -26,7 +27,7 @@
                 <td data-ng-if="!a.isEditing">{{ a.owner.firstName }} {{ a.owner.lastName }}</td>
                 <td style="opacity:0.5;" data-ng-if="!a.isEditing">{{ a.createdAt | amDateFormat: 'DD/MM/YYYY' }} - <span am-time-ago="a.createdAt"></span></td>
                 <td data-ng-if="!a.isEditing">
-                    <a href="javascript:;" class="btn btn-update" data-ng-click="a.isEditing = true">Modifier</a>
+<!--                    <a href="javascript:;" class="btn btn-update" data-ng-click="a.isEditing = true">Modifier</a>-->
                     <a href="javascript:;" class="btn btn-delete" data-ng-click="delete(a)">Supprimer</a>
                 </td>
 

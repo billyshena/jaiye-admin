@@ -8,7 +8,7 @@
  * Controller of the jaiyeApp
  */
 angular.module('jaiyeApp')
-  .controller('AwardCtrl', function ($scope, $modal, AwardService) {
+  .controller('AwardCtrl', function ($scope, $modal, AwardService, Logger) {
 
       $scope.awards = [];
 
@@ -40,6 +40,19 @@ angular.module('jaiyeApp')
         });
 
       }
+
+
+      $scope.delete = function(award) {
+
+        AwardService.delete(award.id).then(function() {
+          $scope.awards.splice($scope.awards.indexOf(award), 1);
+          Logger.logSuccess('Cet award a bien été supprimé');
+        }, function(err) {
+          console.log('err', err);
+          Logger.logError('Erreur lors de la suppression');
+        });
+
+      };
 
 
       loadAwards();
